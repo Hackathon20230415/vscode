@@ -76,6 +76,14 @@
       {
         "command": "cofinder.upgradeSeletion",
         "title": "CoUpgrade: 使用最新语法升级选中代码"
+      },
+      {
+        "command": "cofinder.cleanFile",
+        "title": "CoClean: 净化整个文件"
+      },
+      {
+        "command": "cofinder.cleanSeletion",
+        "title": "CoClean: 净化选中代码"
       }
     ],
     "configuration": {
@@ -166,6 +174,16 @@
           "when": "editorTextFocus && (!editorHasSelection)",
           "command": "cofinder.upgradeFile",
           "group": "upgrade"
+        },
+        {
+          "when": "editorHasSelection",
+          "command": "cofinder.cleanSeletion",
+          "group": "clean"
+        },
+        {
+          "when": "editorTextFocus && (!editorHasSelection)",
+          "command": "cofinder.cleanFile",
+          "group": "clean"
         }
       ]
     }

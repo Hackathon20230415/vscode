@@ -196,29 +196,53 @@ function activate(context) {
 	});
 	context.subscriptions.push(refactorSelection);
 
-		let upgradeFile = vscode.commands.registerCommand('cofinder.upgradeFile', function () {
-			const action = 'upgrade';
-			const template = '/*\r\n %s \r\n*/\r\n%s';
-			const editor = vscode.window.activeTextEditor;
-			if (!editor) {
-				vscode.window.showInformationMessage('识别失败，请联系开发者排查');
-				return;
-			}
-			Invoke(action,template, editor.document.getText());
-		})
-		context.subscriptions.push(upgradeFile);
-	
-		let upgradeSelection = vscode.commands.registerCommand('cofinder.upgradeSeletion', function () {
-			const action = 'upgrade';
-			const template = '/*\r\n %s \r\n*/\r\n%s';
-			const editor = vscode.window.activeTextEditor;
-			if (!editor) {
-				vscode.window.showInformationMessage('识别失败，请联系开发者排查');
-				return;
-			}
-			Invoke(action,template, editor.document.getText(editor.selection), editor.selection);
-		});
-		context.subscriptions.push(upgradeSelection);
+	let upgradeFile = vscode.commands.registerCommand('cofinder.upgradeFile', function () {
+		const action = 'upgrade';
+		const template = '/*\r\n %s \r\n*/\r\n%s';
+		const editor = vscode.window.activeTextEditor;
+		if (!editor) {
+			vscode.window.showInformationMessage('识别失败，请联系开发者排查');
+			return;
+		}
+		Invoke(action, template, editor.document.getText());
+	})
+	context.subscriptions.push(upgradeFile);
+
+	let upgradeSelection = vscode.commands.registerCommand('cofinder.upgradeSeletion', function () {
+		const action = 'upgrade';
+		const template = '/*\r\n %s \r\n*/\r\n%s';
+		const editor = vscode.window.activeTextEditor;
+		if (!editor) {
+			vscode.window.showInformationMessage('识别失败，请联系开发者排查');
+			return;
+		}
+		Invoke(action, template, editor.document.getText(editor.selection), editor.selection);
+	});
+	context.subscriptions.push(upgradeSelection);
+
+	let cleanFile = vscode.commands.registerCommand('cofinder.cleanFile', function () {
+		const action = 'clean';
+		const template = '/*\r\n %s \r\n*/\r\n%s';
+		const editor = vscode.window.activeTextEditor;
+		if (!editor) {
+			vscode.window.showInformationMessage('识别失败，请联系开发者排查');
+			return;
+		}
+		Invoke(action, template, editor.document.getText());
+	})
+	context.subscriptions.push(cleanFile);
+
+	let cleanSelection = vscode.commands.registerCommand('cofinder.cleanSeletion', function () {
+		const action = 'clean';
+		const template = '/*\r\n %s \r\n*/\r\n%s';
+		const editor = vscode.window.activeTextEditor;
+		if (!editor) {
+			vscode.window.showInformationMessage('识别失败，请联系开发者排查');
+			return;
+		}
+		Invoke(action, template, editor.document.getText(editor.selection), editor.selection);
+	});
+	context.subscriptions.push(cleanSelection);
 }
 
 function deactivate() { }
