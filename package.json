@@ -92,6 +92,14 @@
       {
         "command": "cofinder.modularSeletion",
         "title": "CoModular: 模块化选中代码"
+      },
+      {
+        "command": "cofinder.simplifyFile",
+        "title": "CoSimplify: 简化整个文件"
+      },
+      {
+        "command": "cofinder.simplifySeletion",
+        "title": "CoSimplify: 简化选中代码"
       }
     ],
     "configuration": {
@@ -202,6 +210,16 @@
           "when": "editorTextFocus && (!editorHasSelection)",
           "command": "cofinder.modularFile",
           "group": "modular"
+        },
+        {
+          "when": "editorHasSelection",
+          "command": "cofinder.simplifySeletion",
+          "group": "simplify"
+        },
+        {
+          "when": "editorTextFocus && (!editorHasSelection)",
+          "command": "cofinder.simplifyFile",
+          "group": "simplify"
         }
       ]
     }
