@@ -10,6 +10,12 @@
   "categories": [
     "Other"
   ],
+  "keywords": [
+    "ai",
+    "aigc",
+    "chatgpt",
+    "openai"
+  ],
   "preview": true,
   "activationEvents": [],
   "main": "./extension.js",
@@ -121,9 +127,21 @@
         "properties": {
           "cofinder.localMode.enable": {
             "type": "boolean",
-            "order": 1,
+            "order": 0,
             "default": false,
             "description": "是否使用本地模式？本地模式可自定义 OpenAI Key，但无法享受服务端 Prompt 更新带来的精确度提升。"
+          },
+          "cofinder.localMode.model": {
+            "type": "string",
+            "order": 1,
+            "enum": ["gpt-4", "gpt-3.5-turbo","text-davinci-003"],
+            "enumDescriptions": [
+              "More capable than any GPT-3.5 model, able to do more complex tasks, and optimized for chat. Will be updated with our latest model iteration.",
+              "Most capable GPT-3.5 model and optimized for chat at 1/10th the cost of text-davinci-003. Will be updated with our latest model iteration.",
+              "Can do any language task with better quality, longer output, and consistent instruction-following than the curie, babbage, or ada models. Also supports inserting completions within text."
+            ],
+            "default":"text-davinci-003",
+            "description": "所使用的模型"
           },
           "cofinder.localMode.key": {
             "type": "string",
