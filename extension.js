@@ -26,14 +26,25 @@ function activate(context) {
 						editBuilder.replace(selection, `// ${data.data} \r\n\r\n` + code);
 					});
 					progress.report({ increment: 100, message: "" })
-					vscode.window.showInformationMessage("AI 生成成功，请查看代码前的注释内容。")
+					vscode.window.showInformationMessage("🤖 AI 生成成功，请查看代码前的注释内容。")
 				}else{
-					vscode.window.showInformationMessage("AI 生成失败，请联系开发者排查")
+					vscode.window.showInformationMessage("🤖 AI 生成失败，请联系开发者排查")
 				}			
 			}
 		)
 	});
+	let reviewFile = vscode.commands.registerCommand("cofinder.reviewFile",function(){
+		const editor = vscode.window.activeTextEditor;
+		if (!editor) {
+			vscode.window.showInformationMessage("识别失败，请联系开发者排查");
+		}
+		const document = editor.document;
+		console.log(document.languageId);
+		console.log(vscode.languages.getLanguages());
+		vscode.window.showInformationMessage("🤖 AI 生成成功，请查看代码前的注释内容。")
+	})
 	context.subscriptions.push(reviewSelection);
+	context.subscriptions.push(reviewFile);
 }
 
 function deactivate() { }

@@ -1,4 +1,5 @@
 # 码小白 CoFinder
+![](media/logo.png)
 
 ## Features
 
