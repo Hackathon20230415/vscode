@@ -102,90 +102,98 @@
         "title": "AI Simplify: 简化选中代码"
       }
     ],
-    "configuration": {
-      "title": "码小白 CoFinder - AI代码审查、美化、重写、灵感",
-      "order": 0,
-      "properties": {
-        "cofinder.server": {
-          "type": "string",
-          "default": "https://cofinder.api.ixiqin.com/api/",
-          "description": "码小白 CoFinder服务端 API 地址",
-          "order":0
-        },
-        "cofinder.localMode.enable":{
-          "type":"boolean",
-          "order":1,
-          "default": false,
-          "description":"是否使用本地模式？本地模式可自定义 OpenAI Key，但无法享受服务端 Prompt 更新带来的精确度提升。"
-        },
-        "cofinder.localMode.key":{
-          "type":"string",
-          "order":2,
-          "default": null,
-          "description":"需要使用的 OpenAI  Key"
-        },
-        "cofinder.localMode.prompt.review":{
-          "type":"string",
-          "order":3,
-          "default": "请帮我检查这段代码有什么问题: {code}? 如果没有问题，则可以直接告诉我，这段代码很棒，请继续加油！",
-          "markdownDescription":"Review 模式下的 Prompt, 使用 `{code}` 作为具体选中代码的占位符。"
-        },
-        "cofinder.localMode.prompt.beautify":{
-          "type":"string",
-          "order":4,
-          "default": "请帮我美化这段代码有什么问题，让格式更加工整: {code}? 如果已经很好了，则可以直接告诉我，这段代码已经很工整了，请继续加油！",
-          "markdownDescription":"Beautify 模式下的 Prompt, 使用 `{code}` 作为具体选中代码的占位符。"
-        },
-        "cofinder.localMode.prompt.comment":{
-          "type":"string",
-          "order":4,
-          "default": "",
-          "markdownDescription":"Comment 模式下的 Prompt, 使用 `{code}` 作为具体选中代码的占位符。"
-        },
-        "cofinder.localMode.prompt.simplify":{
-          "type":"string",
-          "order":4,
-          "default": "",
-          "markdownDescription":"Simplify 模式下的 Prompt, 使用 `{code}` 作为具体选中代码的占位符。"
-        },
-        "cofinder.localMode.prompt.clean":{
-          "type":"string",
-          "order":4,
-          "default": "",
-          "markdownDescription":"Cimplify 模式下的 Prompt, 使用 `{code}` 作为具体选中代码的占位符。"
-        },
-        "cofinder.localMode.prompt.refactor":{
-          "type":"string",
-          "order":4,
-          "default": "",
-          "markdownDescription":"Refactor 模式下的 Prompt, 使用 `{code}` 作为具体选中代码的占位符。"
-        },
-        "cofinder.localMode.prompt.rewrite":{
-          "type":"string",
-          "order":4,
-          "default": "",
-          "markdownDescription":"Rewrite 模式下的 Prompt, 使用 `{code}` 作为具体选中代码的占位符。"
-        },
-        "cofinder.localMode.prompt.modular":{
-          "type":"string",
-          "order":4,
-          "default": "",
-          "markdownDescription":"Modular 模式下的 Prompt, 使用 `{code}` 作为具体选中代码的占位符。"
-        },
-        "cofinder.localMode.prompt.upgrade":{
-          "type":"string",
-          "order":4,
-          "default": "",
-          "markdownDescription":"Upgrade 模式下的 Prompt, 使用 `{code}` 作为具体选中代码的占位符。"
-        },
-        "cofinder.localMode.prompt.inspire":{
-          "type":"string",
-          "order":4,
-          "default": "",
-          "markdownDescription":"Inspire 模式下的 Prompt, 使用 `{code}` 作为具体选中代码的占位符。"
+    "configuration": [
+      {
+        "title": "SaaS 模式",
+        "order": 0,
+        "properties": {
+          "cofinder.server": {
+            "type": "string",
+            "default": "https://cofinder.api.ixiqin.com/api/",
+            "description": "码小白 CoFinder服务端 API 地址",
+            "order": 0
+          }
+        }
+      },
+      {
+        "title": "本地模式",
+        "order": 1,
+        "properties": {
+          "cofinder.localMode.enable": {
+            "type": "boolean",
+            "order": 1,
+            "default": false,
+            "description": "是否使用本地模式？本地模式可自定义 OpenAI Key，但无法享受服务端 Prompt 更新带来的精确度提升。"
+          },
+          "cofinder.localMode.key": {
+            "type": "string",
+            "order": 2,
+            "default": null,
+            "description": "需要使用的 OpenAI  Key"
+          },
+          "cofinder.localMode.prompt.review": {
+            "type": "string",
+            "order": 3,
+            "default": "请帮我检查这段代码有什么问题: {code}? 如果没有问题，则可以直接告诉我，这段代码很棒，请继续加油！",
+            "markdownDescription": "Review 模式下的 Prompt, 使用 `{code}` 作为具体选中代码的占位符。"
+          },
+          "cofinder.localMode.prompt.beautify": {
+            "type": "string",
+            "order": 4,
+            "default": "请帮我美化这段代码有什么问题，让格式更加工整: {code}? 如果已经很好了，则可以直接告诉我，这段代码已经很工整了，请继续加油！",
+            "markdownDescription": "Beautify 模式下的 Prompt, 使用 `{code}` 作为具体选中代码的占位符。"
+          },
+          "cofinder.localMode.prompt.comment": {
+            "type": "string",
+            "order": 4,
+            "default": "",
+            "markdownDescription": "Comment 模式下的 Prompt, 使用 `{code}` 作为具体选中代码的占位符。"
+          },
+          "cofinder.localMode.prompt.simplify": {
+            "type": "string",
+            "order": 4,
+            "default": "",
+            "markdownDescription": "Simplify 模式下的 Prompt, 使用 `{code}` 作为具体选中代码的占位符。"
+          },
+          "cofinder.localMode.prompt.clean": {
+            "type": "string",
+            "order": 4,
+            "default": "",
+            "markdownDescription": "Cimplify 模式下的 Prompt, 使用 `{code}` 作为具体选中代码的占位符。"
+          },
+          "cofinder.localMode.prompt.refactor": {
+            "type": "string",
+            "order": 4,
+            "default": "",
+            "markdownDescription": "Refactor 模式下的 Prompt, 使用 `{code}` 作为具体选中代码的占位符。"
+          },
+          "cofinder.localMode.prompt.rewrite": {
+            "type": "string",
+            "order": 4,
+            "default": "",
+            "markdownDescription": "Rewrite 模式下的 Prompt, 使用 `{code}` 作为具体选中代码的占位符。"
+          },
+          "cofinder.localMode.prompt.modular": {
+            "type": "string",
+            "order": 4,
+            "default": "",
+            "markdownDescription": "Modular 模式下的 Prompt, 使用 `{code}` 作为具体选中代码的占位符。"
+          },
+          "cofinder.localMode.prompt.upgrade": {
+            "type": "string",
+            "order": 4,
+            "default": "",
+            "markdownDescription": "Upgrade 模式下的 Prompt, 使用 `{code}` 作为具体选中代码的占位符。"
+          },
+          "cofinder.localMode.prompt.inspire": {
+            "type": "string",
+            "order": 4,
+            "default": "",
+            "markdownDescription": "Inspire 模式下的 Prompt, 使用 `{code}` 作为具体选中代码的占位符。"
+          }
         }
       }
-    },
+    ],
     "menus": {
       "editor/context": [
         {
@@ -301,7 +309,7 @@
     "lint": "eslint .",
     "pretest": "yarn run lint",
     "test": "node ./test/runTest.js",
-    "publish":"npm version patch --force && vsce package && vsce publish"
+    "publish": "npm version patch --force && vsce package && vsce publish"
   },
   "devDependencies": {
     "@types/glob": "^8.1.0",
