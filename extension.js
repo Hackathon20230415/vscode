@@ -14,7 +14,7 @@ function activate(context) {
 		vscode.window.withProgress(
 			{
 				location: vscode.ProgressLocation.Notification,
-				title: '🤖 正在请 AI Review 代码中 ...',
+				title: '🤖 AI 正在阅读你的代码 ...',
 				cancellable: false,
 			},
 			async (progress, token) => {
@@ -32,9 +32,9 @@ function activate(context) {
 						}
 					});
 					progress.report({ increment: 100, message: "" })
-					vscode.window.showInformationMessage("🤖 AI 生成成功，请查看代码前的注释内容。")
+					vscode.window.showInformationMessage("🤖 AI 理解成功，请查看代码前的 AI 为你写的建议。")
 				}else{
-					vscode.window.showInformationMessage("🤖 AI 生成失败，请联系开发者排查")
+					vscode.window.showInformationMessage("🤖 AI 理解失败，请联系开发者排查")
 				}			
 			}
 		)
