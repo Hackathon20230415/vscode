@@ -1,6 +1,7 @@
 const { Range } = require('vscode');
 const vscode = require('vscode');
 const axios = require("axios").default;
+const printf = require("fast-printf").printf;
 function activate(context) {
 	/**
 	 * 服务端 Review 函数（带进度条）
@@ -18,7 +19,7 @@ function activate(context) {
 	 * @param {string} code 需要进行 Review 的 Code
 	 * @param {Range} selection 具体的范围，如果不传递，则为全文 Review
 	 */
-	function Invoke(action,code,selection = null){
+	function Invoke(action,template,code,selection = null){
 		const editor = vscode.window.activeTextEditor;
 		const document = editor.document;
 
@@ -37,9 +38,9 @@ function activate(context) {
 					editor.edit(editBuilder => {
 						if(selection == null){
 							let fullPageRange = new Range(document.lineAt(0).range.start, document.lineAt(document.lineCount - 1).range.end)
-							editBuilder.replace(fullPageRange, `// ${data.data} \r\n\r\n` + code)
+							editBuilder.replace(fullPageRange, printf(template,data.data,code))
 						}else{
-							editBuilder.replace(selection, `// ${data.data} \r\n\r\n` + code);
+							editBuilder.replace(selection,  printf(template,data.data,code));
 						}
 					});
 					progress.report({ increment: 100, message: "" })
@@ -59,7 +60,7 @@ function activate(context) {
 			vscode.window.showInformationMessage("识别失败，请联系开发者排查");
 			return;
 		}
-		Invoke('review',editor.document.getText(editor.selection),editor.selection);
+		Invoke('review',"//%s \r\n %s",editor.document.getText(editor.selection),editor.selection);
 	});
 	context.subscriptions.push(reviewSelection);
 
@@ -69,7 +70,7 @@ function activate(context) {
 			vscode.window.showInformationMessage("识别失败，请联系开发者排查");
 			return;
 		}
-		Invoke('review',editor.document.getText());
+		Invoke('review',"//%s \r\n %s",editor.document.getText());
 	})
 	context.subscriptions.push(reviewFile);
 
@@ -79,7 +80,7 @@ function activate(context) {
 			vscode.window.showInformationMessage("识别失败，请联系开发者排查");
 			return;
 		}
-		Invoke('rewrite',editor.document.getText());
+		Invoke('rewrite',"//%s \r\n %s",editor.document.getText());
 	})
 	context.subscriptions.push(rewriteFile);
 
@@ -89,7 +90,7 @@ function activate(context) {
 			vscode.window.showInformationMessage("识别失败，请联系开发者排查");
 			return;
 		}
-		Invoke('rewrite',editor.document.getText(editor.selection),editor.selection);
+		Invoke('rewrite',"//%s \r\n %s",editor.document.getText(editor.selection),editor.selection);
 	});
 	context.subscriptions.push(rewriteSelection);
 }
