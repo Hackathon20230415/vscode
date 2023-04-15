@@ -14,6 +14,12 @@
   "activationEvents": [],
   "main": "./extension.js",
   "contributes": {
+    "submenus": [
+      {
+        "id": "cofinder",
+        "label": "🔍 码小白 CoFinder"
+      }
+    ],
     "commands": [
       {
         "command": "cofinder.reviewFile",
@@ -44,25 +50,32 @@
     },
     "menus": {
       "editor/context": [
+        
         {
-          "when": "editorHasSelection",
-          "command": "cofinder.reviewSeletion",
+          "submenu": "cofinder",
           "group": "navigation"
-        },
-        {
-          "when": "editorTextFocus && (!editorHasSelection)",
-          "command": "cofinder.reviewFile",
-          "group": "navigation"
-        },
+        }
+      ],
+      "cofinder":[
         {
           "when": "editorHasSelection",
           "command": "cofinder.rewriteSeletion",
-          "group": "navigation"
+          "group": "rewrite"
         },
         {
           "when": "editorTextFocus && (!editorHasSelection)",
           "command": "cofinder.rewriteFile",
-          "group": "navigation"
+          "group": "rewrite"
+        },
+        {
+          "when": "editorHasSelection",
+          "command": "cofinder.reviewSeletion",
+          "group": "review"
+        },
+        {
+          "when": "editorTextFocus && (!editorHasSelection)",
+          "command": "cofinder.reviewFile",
+          "group": "review"
         }
       ]
     }
