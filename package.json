@@ -1,7 +1,7 @@
 {
   "name": "cofinder",
-  "displayName": "码小白 CoFinder",
-  "description": "码小白 CoFinder",
+  "displayName": "码小白 CoFinder - AI代码审查、美化、重写、灵感",
+  "description": "CoFinder = Code + Finder，AI帮你查代码、写代码、写注释、做美化... 右键直达。",
   "version": "0.0.6",
   "icon": "media/logo.png",
   "engines": {
