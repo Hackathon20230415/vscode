@@ -36,6 +36,14 @@
       {
         "command": "cofinder.rewriteSeletion",
         "title": "CoWrite: 重写选中代码"
+      },
+      {
+        "command": "cofinder.beautifyFile",
+        "title": "CoBeautify: 美化整个文件"
+      },
+      {
+        "command": "cofinder.beautifySeletion",
+        "title": "CoBeautify: 美化选中代码"
       }
     ],
     "configuration": {
@@ -76,6 +84,16 @@
           "when": "editorTextFocus && (!editorHasSelection)",
           "command": "cofinder.reviewFile",
           "group": "review"
+        },
+        {
+          "when": "editorHasSelection",
+          "command": "cofinder.beautifySeletion",
+          "group": "beautify"
+        },
+        {
+          "when": "editorTextFocus && (!editorHasSelection)",
+          "command": "cofinder.beautifyFile",
+          "group": "beautify"
         }
       ]
     }

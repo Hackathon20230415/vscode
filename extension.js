@@ -74,7 +74,7 @@ function activate(context) {
 			vscode.window.showInformationMessage("识别失败，请联系开发者排查");
 			return;
 		}
-		Invoke(action,template, editor.document.getText());
+		Invoke(action, template, editor.document.getText());
 	})
 	context.subscriptions.push(reviewFile);
 
@@ -86,7 +86,7 @@ function activate(context) {
 			vscode.window.showInformationMessage("识别失败，请联系开发者排查");
 			return;
 		}
-		Invoke(action,template, editor.document.getText());
+		Invoke(action, template, editor.document.getText());
 	})
 	context.subscriptions.push(rewriteFile);
 
@@ -98,9 +98,32 @@ function activate(context) {
 			vscode.window.showInformationMessage("识别失败，请联系开发者排查");
 			return;
 		}
-		Invoke(action,template, editor.document.getText(editor.selection), editor.selection);
+		Invoke(action, template, editor.document.getText(editor.selection), editor.selection);
 	});
 	context.subscriptions.push(rewriteSelection);
+	let beautifyFile = vscode.commands.registerCommand('cofinder.beautifyFile', function () {
+		const action = 'beautify';
+		const template = '/*\r\n %s \r\n*/\r\n%s';
+		const editor = vscode.window.activeTextEditor;
+		if (!editor) {
+			vscode.window.showInformationMessage('识别失败，请联系开发者排查');
+			return;
+		}
+		Invoke(action, template, editor.document.getText());
+	})
+	context.subscriptions.push(beautifyFile);
+
+	let beautifySelection = vscode.commands.registerCommand('cofinder.beautifySeletion', function () {
+		const action = 'beautify';
+		const template = '/*\r\n %s \r\n*/\r\n%s';
+		const editor = vscode.window.activeTextEditor;
+		if (!editor) {
+			vscode.window.showInformationMessage('识别失败，请联系开发者排查');
+			return;
+		}
+		Invoke(action, template, editor.document.getText(editor.selection), editor.selection);
+	});
+	context.subscriptions.push(beautifySelection);
 }
 
 function deactivate() { }
