@@ -1,7 +1,7 @@
 {
-  "name": "maxiaobai",
-  "displayName": "码小白",
-  "description": "码小白插件",
+  "name": "cofinder",
+  "displayName": "码小白 CoFinder",
+  "description": "码小白 CoFinder",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.77.0"
@@ -14,22 +14,22 @@
   "contributes": {
     "commands": [
       {
-        "command": "maxiaobai.reviewFile",
+        "command": "cofinder.reviewFile",
         "title": "Review 整个文件"
       },
       {
-        "command": "maxiaobai.reviewSeletion",
+        "command": "cofinder.reviewSeletion",
         "title": "Review 选中代码"
       }
     ],
     "configuration": {
-      "title": "码小白",
+      "title": "CoFinder",
       "order": 0,
       "properties": {
         "maxiaobai.server": {
           "type": "string",
           "default": "https://openai-bestony.vercel.app/api/",
-          "description": "码小白 API 地址"
+          "description": "CoFinder API 地址"
         }
       }
     },
