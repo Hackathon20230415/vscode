@@ -68,6 +68,14 @@
       {
         "command": "cofinder.refactorSeletion",
         "title": "CoRefactor: 重构选中代码"
+      },
+      {
+        "command": "cofinder.upgradeFile",
+        "title": "CoUpgrade: 使用最新语法升级整个文件"
+      },
+      {
+        "command": "cofinder.upgradeSeletion",
+        "title": "CoUpgrade: 使用最新语法升级选中代码"
       }
     ],
     "configuration": {
@@ -140,15 +148,25 @@
           "group": "inspire"
         },
         {
-                  "when": "editorHasSelection",
-                  "command": "cofinder.refactorSeletion",
-                  "group": "refactor"
-                },
-                {
-                  "when": "editorTextFocus && (!editorHasSelection)",
-                  "command": "cofinder.refactorFile",
-                  "group": "refactor"
-                }
+          "when": "editorHasSelection",
+          "command": "cofinder.refactorSeletion",
+          "group": "refactor"
+        },
+        {
+          "when": "editorTextFocus && (!editorHasSelection)",
+          "command": "cofinder.refactorFile",
+          "group": "refactor"
+        },
+        {
+          "when": "editorHasSelection",
+          "command": "cofinder.upgradeSeletion",
+          "group": "upgrade"
+        },
+        {
+          "when": "editorTextFocus && (!editorHasSelection)",
+          "command": "cofinder.upgradeFile",
+          "group": "upgrade"
+        }
       ]
     }
   },

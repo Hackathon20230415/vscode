@@ -195,6 +195,30 @@ function activate(context) {
 		Invoke(action, template, editor.document.getText(editor.selection), editor.selection);
 	});
 	context.subscriptions.push(refactorSelection);
+
+		let upgradeFile = vscode.commands.registerCommand('cofinder.upgradeFile', function () {
+			const action = 'upgrade';
+			const template = '/*\r\n %s \r\n*/\r\n%s';
+			const editor = vscode.window.activeTextEditor;
+			if (!editor) {
+				vscode.window.showInformationMessage('识别失败，请联系开发者排查');
+				return;
+			}
+			Invoke(action,template, editor.document.getText());
+		})
+		context.subscriptions.push(upgradeFile);
+	
+		let upgradeSelection = vscode.commands.registerCommand('cofinder.upgradeSeletion', function () {
+			const action = 'upgrade';
+			const template = '/*\r\n %s \r\n*/\r\n%s';
+			const editor = vscode.window.activeTextEditor;
+			if (!editor) {
+				vscode.window.showInformationMessage('识别失败，请联系开发者排查');
+				return;
+			}
+			Invoke(action,template, editor.document.getText(editor.selection), editor.selection);
+		});
+		context.subscriptions.push(upgradeSelection);
 }
 
 function deactivate() { }
