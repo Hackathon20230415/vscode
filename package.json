@@ -124,102 +124,102 @@
         {
           "when": "editorHasSelection",
           "command": "cofinder.rewriteSeletion",
-          "group": "rewrite"
+          "group": "3_body@2"
         },
         {
           "when": "editorTextFocus && (!editorHasSelection)",
           "command": "cofinder.rewriteFile",
-          "group": "rewrite"
+          "group": "3_body@2"
         },
         {
           "when": "editorHasSelection",
           "command": "cofinder.reviewSeletion",
-          "group": "review"
+          "group": "1_header@1"
         },
         {
           "when": "editorTextFocus && (!editorHasSelection)",
           "command": "cofinder.reviewFile",
-          "group": "review"
+          "group": "1_header@1"
         },
         {
           "when": "editorHasSelection",
           "command": "cofinder.beautifySeletion",
-          "group": "beautify"
+          "group": "2_body@1"
         },
         {
           "when": "editorTextFocus && (!editorHasSelection)",
           "command": "cofinder.beautifyFile",
-          "group": "beautify"
+          "group": "2_body@1"
         },
         {
           "when": "editorHasSelection",
           "command": "cofinder.commentSeletion",
-          "group": "comment"
+          "group": "2_body@2"
         },
         {
           "when": "editorTextFocus && (!editorHasSelection)",
           "command": "cofinder.commentFile",
-          "group": "comment"
+          "group": "2_body@2"
         },
         {
           "when": "editorHasSelection",
           "command": "cofinder.inspireSeletion",
-          "group": "inspire"
+          "group": "4_footer@1"
         },
         {
           "when": "editorTextFocus && (!editorHasSelection)",
           "command": "cofinder.inspireFile",
-          "group": "inspire"
+          "group": "4_footer@1"
         },
         {
           "when": "editorHasSelection",
           "command": "cofinder.refactorSeletion",
-          "group": "refactor"
+          "group": "3_body@1"
         },
         {
           "when": "editorTextFocus && (!editorHasSelection)",
           "command": "cofinder.refactorFile",
-          "group": "refactor"
+          "group": "3_body@1"
         },
         {
           "when": "editorHasSelection",
           "command": "cofinder.upgradeSeletion",
-          "group": "upgrade"
+          "group": "3_body@4"
         },
         {
           "when": "editorTextFocus && (!editorHasSelection)",
           "command": "cofinder.upgradeFile",
-          "group": "upgrade"
+          "group": "3_body@4"
         },
         {
           "when": "editorHasSelection",
           "command": "cofinder.cleanSeletion",
-          "group": "clean"
+          "group": "2_body@4"
         },
         {
           "when": "editorTextFocus && (!editorHasSelection)",
           "command": "cofinder.cleanFile",
-          "group": "clean"
+          "group": "2_body@4"
         },
         {
           "when": "editorHasSelection",
           "command": "cofinder.modularSeletion",
-          "group": "modular"
+          "group": "3_body@3"
         },
         {
           "when": "editorTextFocus && (!editorHasSelection)",
           "command": "cofinder.modularFile",
-          "group": "modular"
+          "group": "3_body@3"
         },
         {
           "when": "editorHasSelection",
           "command": "cofinder.simplifySeletion",
-          "group": "simplify"
+          "group": "2_body@3"
         },
         {
           "when": "editorTextFocus && (!editorHasSelection)",
           "command": "cofinder.simplifyFile",
-          "group": "simplify"
+          "group": "2_body@3"
         }
       ]
     }
