@@ -1,4 +1,4 @@
-const {cloud} = require("./request");
+const {cloud, local} = require("./request");
 const vscode = require('vscode');
 function activate(context) {
 	/**
@@ -25,7 +25,12 @@ function activate(context) {
 				cancellable: false,
 			},
 			async (progress) => {
-				cloud(action,template,code,selection,progress)
+				let {localMode} = vscode.workspace.getConfiguration('cofinder');
+				if(localMode.enable){
+					local(action,template,code,selection,progress)
+				}else{
+					cloud(action,template,code,selection,progress)
+				}
 			}
 		)
 	}
