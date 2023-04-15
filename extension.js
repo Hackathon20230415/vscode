@@ -19,7 +19,7 @@ function activate(context) {
 	 * @param {string} code 需要进行 Review 的 Code
 	 * @param {Range} selection 具体的范围，如果不传递，则为全文 Review
 	 */
-	function Invoke(action,template,code,selection = null){
+	function Invoke(action, template, code, selection = null) {
 		const editor = vscode.window.activeTextEditor;
 		const document = editor.document;
 
@@ -31,23 +31,23 @@ function activate(context) {
 			},
 			async (progress) => {
 				let { server } = vscode.workspace.getConfiguration('cofinder');
-				const {data} = await axios.post(`${server}/${action}`,{
+				const { data } = await axios.post(`${server}/${action}`, {
 					code: code
 				});
-				if(data.code == 0){
+				if (data.code == 0) {
 					editor.edit(editBuilder => {
-						if(selection == null){
+						if (selection == null) {
 							let fullPageRange = new Range(document.lineAt(0).range.start, document.lineAt(document.lineCount - 1).range.end)
-							editBuilder.replace(fullPageRange, printf(template,data.data,code))
-						}else{
-							editBuilder.replace(selection,  printf(template,data.data,code));
+							editBuilder.replace(fullPageRange, printf(template, data.data, code))
+						} else {
+							editBuilder.replace(selection, printf(template, data.data, code));
 						}
 					});
 					progress.report({ increment: 100, message: "" })
 					vscode.window.showInformationMessage("🤖 AI 理解成功，请查看代码前的 AI 为你写的建议。")
-				}else{
+				} else {
 					vscode.window.showInformationMessage("🤖 AI 理解失败，请联系开发者排查")
-				}			
+				}
 			}
 		)
 	}
@@ -55,42 +55,50 @@ function activate(context) {
 	 * CoReview
 	 */
 	let reviewSelection = vscode.commands.registerCommand('cofinder.reviewSeletion', function () {
+		const action = "review";
+		const template = "//%s \r\n %s";
 		const editor = vscode.window.activeTextEditor;
 		if (!editor) {
 			vscode.window.showInformationMessage("识别失败，请联系开发者排查");
 			return;
 		}
-		Invoke('review',"//%s \r\n %s",editor.document.getText(editor.selection),editor.selection);
+		Invoke(action, template, editor.document.getText(editor.selection), editor.selection);
 	});
 	context.subscriptions.push(reviewSelection);
 
-	let reviewFile = vscode.commands.registerCommand("cofinder.reviewFile",function(){
+	let reviewFile = vscode.commands.registerCommand("cofinder.reviewFile", function () {
+		const action = "review";
+		const template = "//%s \r\n %s";
 		const editor = vscode.window.activeTextEditor;
 		if (!editor) {
 			vscode.window.showInformationMessage("识别失败，请联系开发者排查");
 			return;
 		}
-		Invoke('review',"//%s \r\n %s",editor.document.getText());
+		Invoke(action,template, editor.document.getText());
 	})
 	context.subscriptions.push(reviewFile);
 
-	let rewriteFile = vscode.commands.registerCommand("cofinder.rewriteFile",function(){
+	let rewriteFile = vscode.commands.registerCommand("cofinder.rewriteFile", function () {
+		const action = "rewrite";
+		const template = "//%s \r\n %s";
 		const editor = vscode.window.activeTextEditor;
 		if (!editor) {
 			vscode.window.showInformationMessage("识别失败，请联系开发者排查");
 			return;
 		}
-		Invoke('rewrite',"//%s \r\n %s",editor.document.getText());
+		Invoke(action,template, editor.document.getText());
 	})
 	context.subscriptions.push(rewriteFile);
 
 	let rewriteSelection = vscode.commands.registerCommand('cofinder.rewriteSeletion', function () {
+		const action = "rewrite";
+		const template = "//%s \r\n %s";
 		const editor = vscode.window.activeTextEditor;
 		if (!editor) {
 			vscode.window.showInformationMessage("识别失败，请联系开发者排查");
 			return;
 		}
-		Invoke('rewrite',"//%s \r\n %s",editor.document.getText(editor.selection),editor.selection);
+		Invoke(action,template, editor.document.getText(editor.selection), editor.selection);
 	});
 	context.subscriptions.push(rewriteSelection);
 }
