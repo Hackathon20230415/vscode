@@ -1,5 +1,5 @@
 # 码小白 CoFinder
-![](media/logoWithText.png)
+![](https://postimg.aliavv.com/mbp162023/ore58k.jpg)
 
 ## Features
 
