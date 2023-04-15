@@ -84,6 +84,14 @@
       {
         "command": "cofinder.cleanSeletion",
         "title": "CoClean: 净化选中代码"
+      },
+      {
+        "command": "cofinder.modularFile",
+        "title": "CoModular: 模块化整个文件"
+      },
+      {
+        "command": "cofinder.modularSeletion",
+        "title": "CoModular: 模块化选中代码"
       }
     ],
     "configuration": {
@@ -184,6 +192,16 @@
           "when": "editorTextFocus && (!editorHasSelection)",
           "command": "cofinder.cleanFile",
           "group": "clean"
+        },
+        {
+          "when": "editorHasSelection",
+          "command": "cofinder.modularSeletion",
+          "group": "modular"
+        },
+        {
+          "when": "editorTextFocus && (!editorHasSelection)",
+          "command": "cofinder.modularFile",
+          "group": "modular"
         }
       ]
     }
