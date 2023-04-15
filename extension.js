@@ -13,7 +13,7 @@ function activate(context) {
 		vscode.window.withProgress(
 			{
 				location: vscode.ProgressLocation.Notification,
-				title: 'Finding ...',
+				title: '🤖 正在请 AI Review 代码中 ...',
 				cancellable: false,
 			},
 			async (progress, token) => {
