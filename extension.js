@@ -56,7 +56,7 @@ function activate(context) {
 	 */
 	let reviewSelection = vscode.commands.registerCommand('cofinder.reviewSeletion', function () {
 		const action = "review";
-		const template = "//%s \r\n %s";
+		const template = "/*\r\n %s \r\n*/\r\n%s";
 		const editor = vscode.window.activeTextEditor;
 		if (!editor) {
 			vscode.window.showInformationMessage("识别失败，请联系开发者排查");
@@ -68,7 +68,7 @@ function activate(context) {
 
 	let reviewFile = vscode.commands.registerCommand("cofinder.reviewFile", function () {
 		const action = "review";
-		const template = "//%s \r\n %s";
+		const template = "/*\r\n %s \r\n*/\r\n%s";
 		const editor = vscode.window.activeTextEditor;
 		if (!editor) {
 			vscode.window.showInformationMessage("识别失败，请联系开发者排查");
@@ -80,7 +80,7 @@ function activate(context) {
 
 	let rewriteFile = vscode.commands.registerCommand("cofinder.rewriteFile", function () {
 		const action = "rewrite";
-		const template = "//%s \r\n %s";
+		const template = "/*\r\n %s \r\n*/\r\n%s";
 		const editor = vscode.window.activeTextEditor;
 		if (!editor) {
 			vscode.window.showInformationMessage("识别失败，请联系开发者排查");
@@ -92,7 +92,7 @@ function activate(context) {
 
 	let rewriteSelection = vscode.commands.registerCommand('cofinder.rewriteSeletion', function () {
 		const action = "rewrite";
-		const template = "//%s \r\n %s";
+		const template = "/*\r\n %s \r\n*/\r\n%s";
 		const editor = vscode.window.activeTextEditor;
 		if (!editor) {
 			vscode.window.showInformationMessage("识别失败，请联系开发者排查");
