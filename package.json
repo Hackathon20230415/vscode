@@ -17,11 +17,18 @@
     "commands": [
       {
         "command": "cofinder.reviewFile",
-        "title": "Review 整个文件"
+        "title": "CoReview: Review 整个文件"
       },
       {
         "command": "cofinder.reviewSeletion",
-        "title": "Review 选中代码"
+        "title": "CoReview: Review 选中代码"
+      },
+      {
+        "command": "cofinder.rewriteFile",
+        "title": "CoWrite: 重写整个文件"
+      }, {
+        "command": "cofinder.rewriteSeletion",
+        "title": "CoWrite: 重写选中代码"
       }
     ],
     "configuration": {
@@ -45,6 +52,16 @@
         {
           "when": "editorTextFocus && (!editorHasSelection)",
           "command": "cofinder.reviewFile",
+          "group": "navigation"
+        },
+        {
+          "when": "editorHasSelection",
+          "command": "cofinder.rewriteSeletion",
+          "group": "navigation"
+        },
+        {
+          "when": "editorTextFocus && (!editorHasSelection)",
+          "command": "cofinder.rewriteFile",
           "group": "navigation"
         }
       ]

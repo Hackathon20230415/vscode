@@ -72,6 +72,26 @@ function activate(context) {
 		Invoke('review',editor.document.getText());
 	})
 	context.subscriptions.push(reviewFile);
+
+	let rewriteFile = vscode.commands.registerCommand("cofinder.rewriteFile",function(){
+		const editor = vscode.window.activeTextEditor;
+		if (!editor) {
+			vscode.window.showInformationMessage("识别失败，请联系开发者排查");
+			return;
+		}
+		Invoke('rewrite',editor.document.getText());
+	})
+	context.subscriptions.push(rewriteFile);
+
+	let rewriteSelection = vscode.commands.registerCommand('cofinder.rewriteSeletion', function () {
+		const editor = vscode.window.activeTextEditor;
+		if (!editor) {
+			vscode.window.showInformationMessage("识别失败，请联系开发者排查");
+			return;
+		}
+		Invoke('rewrite',editor.document.getText(editor.selection),editor.selection);
+	});
+	context.subscriptions.push(rewriteSelection);
 }
 
 function deactivate() { }
