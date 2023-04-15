@@ -64,5 +64,6 @@
   },
   "repository":{
     "url": "https://github.com/Hackathon20230415/vscode/tree/main"
-  }
+  },
+  "publisher": "bestony"
 }
