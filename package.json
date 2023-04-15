@@ -44,6 +44,14 @@
       {
         "command": "cofinder.beautifySeletion",
         "title": "CoBeautify: 美化选中代码"
+      },
+      {
+        "command": "cofinder.commentFile",
+        "title": "CoComment: 注释整个文件"
+      },
+      {
+        "command": "cofinder.commentSeletion",
+        "title": "CoComment: 注释选中代码"
       }
     ],
     "configuration": {
@@ -94,6 +102,16 @@
           "when": "editorTextFocus && (!editorHasSelection)",
           "command": "cofinder.beautifyFile",
           "group": "beautify"
+        },
+        {
+          "when": "editorHasSelection",
+          "command": "cofinder.commentSeletion",
+          "group": "comment"
+        },
+        {
+          "when": "editorTextFocus && (!editorHasSelection)",
+          "command": "cofinder.commentFile",
+          "group": "comment"
         }
       ]
     }
