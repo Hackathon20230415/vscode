@@ -55,19 +55,15 @@ function activate(context) {
 		if (!editor) {
 			vscode.window.showInformationMessage("识别失败，请联系开发者排查");
 		}
-		const document = editor.document;
-		const selection = editor.selection;
-		const code = document.getText(selection);
-		Invoke('review',code,selection);
-		
+		const code = editor.document.getText(editor.selection);
+		Invoke('review',code,editor.selection);
 	});
 	let reviewFile = vscode.commands.registerCommand("cofinder.reviewFile",function(){
 		const editor = vscode.window.activeTextEditor;
 		if (!editor) {
 			vscode.window.showInformationMessage("识别失败，请联系开发者排查");
 		}
-		const document = editor.document;
-		const code = document.getText();
+		const code = editor.document.getText();
 		Invoke('review',code);
 	})
 	context.subscriptions.push(reviewSelection);
