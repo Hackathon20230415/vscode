@@ -1,7 +1,7 @@
 {
   "name": "maxiaobai",
-  "displayName": "MaXiaoBai",
-  "description": "Ma Xiao Bai Extension",
+  "displayName": "码小白",
+  "description": "码小白插件",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.77.0"
@@ -12,15 +12,36 @@
   "activationEvents": [],
   "main": "./extension.js",
   "contributes": {
-    "commands": [{
-      "command": "maxiaobai.reviewFile",
-      "title": "Review Whole File"
+    "commands": [
+      {
+        "command": "maxiaobai.reviewFile",
+        "title": "Review 整个文件"
+      },
+      {
+        "command": "maxiaobai.reviewSeletion",
+        "title": "Review 选中代码"
+      }
+    ],
+    "configuration": {
+      "title": "码小白",
+      "order": 0,
+      "properties": {
+        "maxiaobai.server": {
+          "type": "string",
+          "default": "https://openai-bestony.vercel.app/api/",
+          "description": "码小白 API 地址"
+        }
+      }
     },
-    {
-      "command": "maxiaobai.reviewSeletion",
-      "title": "Review Selection"
+    "menus": {
+      "editor/context": [
+        {
+          "when": "editorHasSelection",
+          "command": "maxiaobai.reviewSeletion",
+          "group": "navigation"
+        }
+      ]
     }
-  ]
   },
   "scripts": {
     "lint": "eslint .",

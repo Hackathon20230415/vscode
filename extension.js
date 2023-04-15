@@ -8,8 +8,6 @@ function activate(context) {
 	let reviewSelection = vscode.commands.registerCommand('maxiaobai.reviewSeletion', function () {
 		vscode.window.showInformationMessage('Review Whole File');
 	});
-
-
 	context.subscriptions.push(reviewFile);
 	context.subscriptions.push(reviewSelection);
 }
