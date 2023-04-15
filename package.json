@@ -60,6 +60,14 @@
       {
         "command": "cofinder.inspireSeletion",
         "title": "CoInspire: 为选中代码推荐文章、库或资料"
+      },
+      {
+        "command": "cofinder.refactorFile",
+        "title": "CoRefactor: 重构整个文件"
+      },
+      {
+        "command": "cofinder.refactorSeletion",
+        "title": "CoRefactor: 重构选中代码"
       }
     ],
     "configuration": {
@@ -130,7 +138,17 @@
           "when": "editorTextFocus && (!editorHasSelection)",
           "command": "cofinder.inspireFile",
           "group": "inspire"
-        }
+        },
+        {
+                  "when": "editorHasSelection",
+                  "command": "cofinder.refactorSeletion",
+                  "group": "refactor"
+                },
+                {
+                  "when": "editorTextFocus && (!editorHasSelection)",
+                  "command": "cofinder.refactorFile",
+                  "group": "refactor"
+                }
       ]
     }
   },
