@@ -4,6 +4,17 @@ const axios = require("axios").default;
 function activate(context) {
 	/**
 	 * 服务端 Review 函数（带进度条）
+	 * @param {string} action 需要进行的操作，可选项有 
+	 * 	review - 代码 Review
+	 *  beautify - 代码美化
+	 *  comment - 添加注释
+	 *  simplify - 简化
+	 *  clean - 净化
+	 *  refactor - 重构
+	 *  rewrite - 重写
+	 *  modular - 模块化
+	 *  upgrade - 更新
+	 *  inspire - 灵感
 	 * @param {string} code 需要进行 Review 的 Code
 	 * @param {Range} selection 具体的范围，如果不传递，则为全文 Review
 	 */
