@@ -2,7 +2,7 @@
   "name": "cofinder",
   "displayName": "码小白 CoFinder",
   "description": "码小白 CoFinder",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "icon": "media/logo.png",
   "engines": {
     "vscode": "^1.77.0"
