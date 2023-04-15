@@ -103,7 +103,7 @@ function activate(context) {
 	context.subscriptions.push(rewriteSelection);
 	let beautifyFile = vscode.commands.registerCommand('cofinder.beautifyFile', function () {
 		const action = 'beautify';
-		const template = '/*\r\n %s \r\n*/\r\n%s';
+		const template = "<<<<<<<\r\n %2$s \r\n=======\r\n %1$s \r\n>>>>>>>";
 		const editor = vscode.window.activeTextEditor;
 		if (!editor) {
 			vscode.window.showInformationMessage('识别失败，请联系开发者排查');
@@ -115,7 +115,7 @@ function activate(context) {
 
 	let beautifySelection = vscode.commands.registerCommand('cofinder.beautifySeletion', function () {
 		const action = 'beautify';
-		const template = '/*\r\n %s \r\n*/\r\n%s';
+		const template = "<<<<<<<\r\n %2$s \r\n=======\r\n %1$s \r\n>>>>>>>";
 		const editor = vscode.window.activeTextEditor;
 		if (!editor) {
 			vscode.window.showInformationMessage('识别失败，请联系开发者排查');
@@ -126,7 +126,7 @@ function activate(context) {
 	context.subscriptions.push(beautifySelection);
 	let commentFile = vscode.commands.registerCommand('cofinder.commentFile', function () {
 		const action = 'comment';
-		const template = '/*\r\n %s \r\n*/\r\n%s';
+		const template = "<<<<<<<\r\n %2$s \r\n=======\r\n %1$s \r\n>>>>>>>";
 		const editor = vscode.window.activeTextEditor;
 		if (!editor) {
 			vscode.window.showInformationMessage('识别失败，请联系开发者排查');
@@ -138,7 +138,7 @@ function activate(context) {
 
 	let commentSelection = vscode.commands.registerCommand('cofinder.commentSeletion', function () {
 		const action = 'comment';
-		const template = '/*\r\n %s \r\n*/\r\n%s';
+		const template = "<<<<<<<\r\n %2$s \r\n=======\r\n %1$s \r\n>>>>>>>";
 		const editor = vscode.window.activeTextEditor;
 		if (!editor) {
 			vscode.window.showInformationMessage('识别失败，请联系开发者排查');
@@ -222,7 +222,7 @@ function activate(context) {
 
 	let cleanFile = vscode.commands.registerCommand('cofinder.cleanFile', function () {
 		const action = 'clean';
-		const template = '/*\r\n %s \r\n*/\r\n%s';
+		const template = "<<<<<<<\r\n %2$s \r\n=======\r\n %1$s \r\n>>>>>>>";
 		const editor = vscode.window.activeTextEditor;
 		if (!editor) {
 			vscode.window.showInformationMessage('识别失败，请联系开发者排查');
@@ -234,7 +234,7 @@ function activate(context) {
 
 	let cleanSelection = vscode.commands.registerCommand('cofinder.cleanSeletion', function () {
 		const action = 'clean';
-		const template = '/*\r\n %s \r\n*/\r\n%s';
+		const template = "<<<<<<<\r\n %2$s \r\n=======\r\n %1$s \r\n>>>>>>>";
 		const editor = vscode.window.activeTextEditor;
 		if (!editor) {
 			vscode.window.showInformationMessage('识别失败，请联系开发者排查');
