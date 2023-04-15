@@ -13,9 +13,14 @@
   "main": "./extension.js",
   "contributes": {
     "commands": [{
-      "command": "maxiaobai.helloWorld",
-      "title": "Hello World"
-    }]
+      "command": "maxiaobai.reviewFile",
+      "title": "Review Whole File"
+    },
+    {
+      "command": "maxiaobai.reviewSeletion",
+      "title": "Review Selection"
+    }
+  ]
   },
   "scripts": {
     "lint": "eslint .",
