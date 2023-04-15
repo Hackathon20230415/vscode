@@ -18,7 +18,9 @@ function activate(context) {
 			},
 			async (progress, token) => {
 				let { server } = vscode.workspace.getConfiguration('cofinder');
-				const {data} = await axios.get(`${server}/review`);
+				const {data} = await axios.post(`${server}/review`,{
+					code: code
+				});
 				if(data.code == 0){
 					editor.edit(editBuilder => {
 						editBuilder.replace(selection, `// ${data.data} \r\n\r\n` + code);
