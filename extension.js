@@ -28,7 +28,7 @@ function activate(context) {
 				title: '🤖 AI 正在阅读你的代码 ...',
 				cancellable: false,
 			},
-			async (progress, token) => {
+			async (progress) => {
 				let { server } = vscode.workspace.getConfiguration('cofinder');
 				const {data} = await axios.post(`${server}/${action}`,{
 					code: code
