@@ -28,7 +28,7 @@
       "properties": {
         "cofinder.server": {
           "type": "string",
-          "default": "https://openai-bestony.vercel.app/api/",
+          "default": "https://openai-zeta-murex.vercel.app/api/",
           "description": "CoFinder API 地址"
         }
       }
