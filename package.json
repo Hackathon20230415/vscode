@@ -40,6 +40,11 @@
           "when": "editorHasSelection",
           "command": "cofinder.reviewSeletion",
           "group": "navigation"
+        },
+        {
+          "when": "editorTextFocus && (!editorHasSelection)",
+          "command": "cofinder.reviewFile",
+          "group": "navigation"
         }
       ]
     }
