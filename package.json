@@ -2,13 +2,14 @@
   "name": "cofinder",
   "displayName": "码小白 CoFinder",
   "description": "码小白 CoFinder",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.77.0"
   },
   "categories": [
     "Other"
   ],
+  "preview":true,
   "activationEvents": [],
   "main": "./extension.js",
   "contributes": {
@@ -28,7 +29,7 @@
       "properties": {
         "cofinder.server": {
           "type": "string",
-          "default": "https://openai-zeta-murex.vercel.app/api/",
+          "default": "https://cofinder.api.ixiqin.com/api/",
           "description": "CoFinder API 地址"
         }
       }
