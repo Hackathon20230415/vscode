@@ -141,7 +141,7 @@
               "Can do any language task with better quality, longer output, and consistent instruction-following than the curie, babbage, or ada models. Also supports inserting completions within text."
             ],
             "default":"text-davinci-003",
-            "description": "所使用的模型"
+            "description": "AI 所使用的模型"
           },
           "cofinder.localMode.key": {
             "type": "string",
