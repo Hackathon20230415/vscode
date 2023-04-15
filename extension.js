@@ -147,6 +147,30 @@ function activate(context) {
 		Invoke(action, template, editor.document.getText(editor.selection), editor.selection);
 	});
 	context.subscriptions.push(commentSelection);
+
+	let inspireFile = vscode.commands.registerCommand('cofinder.inspireFile', function () {
+		const action = 'inspire';
+		const template = '/*\r\n %s \r\n*/\r\n%s';
+		const editor = vscode.window.activeTextEditor;
+		if (!editor) {
+			vscode.window.showInformationMessage('识别失败，请联系开发者排查');
+			return;
+		}
+		Invoke(action, template, editor.document.getText());
+	})
+	context.subscriptions.push(inspireFile);
+
+	let inspireSelection = vscode.commands.registerCommand('cofinder.inspireSeletion', function () {
+		const action = 'inspire';
+		const template = '/*\r\n %s \r\n*/\r\n%s';
+		const editor = vscode.window.activeTextEditor;
+		if (!editor) {
+			vscode.window.showInformationMessage('识别失败，请联系开发者排查');
+			return;
+		}
+		Invoke(action, template, editor.document.getText(editor.selection), editor.selection);
+	});
+	context.subscriptions.push(inspireSelection);
 }
 
 function deactivate() { }

@@ -52,6 +52,14 @@
       {
         "command": "cofinder.commentSeletion",
         "title": "CoComment: 注释选中代码"
+      },
+      {
+        "command": "cofinder.inspireFile",
+        "title": "CoInspire: 为整个文件推荐文章、库或资料"
+      },
+      {
+        "command": "cofinder.inspireSeletion",
+        "title": "CoInspire: 为选中代码推荐文章、库或资料"
       }
     ],
     "configuration": {
@@ -112,6 +120,16 @@
           "when": "editorTextFocus && (!editorHasSelection)",
           "command": "cofinder.commentFile",
           "group": "comment"
+        },
+        {
+          "when": "editorHasSelection",
+          "command": "cofinder.inspireSeletion",
+          "group": "inspire"
+        },
+        {
+          "when": "editorTextFocus && (!editorHasSelection)",
+          "command": "cofinder.inspireFile",
+          "group": "inspire"
         }
       ]
     }
