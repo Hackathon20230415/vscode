@@ -26,7 +26,7 @@
       "title": "CoFinder",
       "order": 0,
       "properties": {
-        "maxiaobai.server": {
+        "cofinder.server": {
           "type": "string",
           "default": "https://openai-bestony.vercel.app/api/",
           "description": "CoFinder API 地址"
@@ -37,7 +37,7 @@
       "editor/context": [
         {
           "when": "editorHasSelection",
-          "command": "maxiaobai.reviewSeletion",
+          "command": "cofinder.reviewSeletion",
           "group": "navigation"
         }
       ]
