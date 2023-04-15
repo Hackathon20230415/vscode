@@ -50,23 +50,27 @@ function activate(context) {
 			}
 		)
 	}
+	/**
+	 * CoReview
+	 */
 	let reviewSelection = vscode.commands.registerCommand('cofinder.reviewSeletion', function () {
 		const editor = vscode.window.activeTextEditor;
 		if (!editor) {
 			vscode.window.showInformationMessage("识别失败，请联系开发者排查");
+			return;
 		}
-		const code = editor.document.getText(editor.selection);
-		Invoke('review',code,editor.selection);
+		Invoke('review',editor.document.getText(editor.selection),editor.selection);
 	});
+	context.subscriptions.push(reviewSelection);
+
 	let reviewFile = vscode.commands.registerCommand("cofinder.reviewFile",function(){
 		const editor = vscode.window.activeTextEditor;
 		if (!editor) {
 			vscode.window.showInformationMessage("识别失败，请联系开发者排查");
+			return;
 		}
-		const code = editor.document.getText();
-		Invoke('review',code);
+		Invoke('review',editor.document.getText());
 	})
-	context.subscriptions.push(reviewSelection);
 	context.subscriptions.push(reviewFile);
 }
 
