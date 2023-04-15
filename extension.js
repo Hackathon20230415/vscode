@@ -7,7 +7,7 @@ function activate(context) {
 	 * @param {string} code 需要进行 Review 的 Code
 	 * @param {Range} selection 具体的范围，如果不传递，则为全文 Review
 	 */
-	function ReviewCodeByAI(code,selection = null){
+	function Invoke(action,code,selection = null){
 		const editor = vscode.window.activeTextEditor;
 		const document = editor.document;
 
@@ -19,7 +19,7 @@ function activate(context) {
 			},
 			async (progress, token) => {
 				let { server } = vscode.workspace.getConfiguration('cofinder');
-				const {data} = await axios.post(`${server}/review`,{
+				const {data} = await axios.post(`${server}/${action}`,{
 					code: code
 				});
 				if(data.code == 0){
@@ -47,7 +47,7 @@ function activate(context) {
 		const document = editor.document;
 		const selection = editor.selection;
 		const code = document.getText(selection);
-		ReviewCodeByAI(code,selection);
+		Invoke('review',code,selection);
 		
 	});
 	let reviewFile = vscode.commands.registerCommand("cofinder.reviewFile",function(){
@@ -57,7 +57,7 @@ function activate(context) {
 		}
 		const document = editor.document;
 		const code = document.getText();
-		ReviewCodeByAI(code);
+		Invoke('review',code);
 	})
 	context.subscriptions.push(reviewSelection);
 	context.subscriptions.push(reviewFile);
