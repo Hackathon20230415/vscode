@@ -1,6 +1,8 @@
 # 码小白 CoFinder => Code + Finder,  AI帮你查代码、写代码、写注释、做美化... 右键直达
 ![](https://postimg.aliavv.com/mbp162023/ore58k.jpg)
 
+[**下载体验**]()
+
 ## 愿景
 
 - AIGC 来临之后，所有人都觉得 Somebody 将会失去自己的工作。但我们不同，我们相信 AIGC 终将改变世界，**但不是干掉每个人的工作，而是让每个人成为更好的自己。我们希望帮助每一个 Developer 都成为 10x Developer，甚至是 100x Developer。**
@@ -52,21 +54,13 @@
 
 ![](https://postimg.aliavv.com/mbp162023/i5eelv.png)
 
-## Extension Settings
+## 长期规划
 
+### 多编辑器系统支持
 
-* `cofinder.server`: CoFinder 的服务器地址，私有化部署时可根据需要进行修改。
+- CoFinder 后续将支持 Jetbrains 系列 IDE、XCode、Sublime Text 等常见编辑器系统，给开发者带来全平台统一的体验。
 
-## Release Notes
-
-下载VSCode最新版本: [点击下载](https://marketplace.visualstudio.com/items?itemName=bestony.cofinder)
-
-### 0.0.1
-
-- 发布初始版本
-
-### 0.0.9
-- 已发布VSCode版本
+![](https://postimg.aliavv.com/mbp162023/lcsi66.png)
 
 ## 作者
 - [白宦成](https://github.com/bestony)
