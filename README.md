@@ -88,6 +88,8 @@
 - CoFinder 后续将支持 Jetbrains 系列 IDE、XCode、Sublime Text 等常见编辑器系统，给开发者带来全平台统一的体验。
 
 ![](https://postimg.aliavv.com/mbp162023/lcsi66.png)
+### 多 LLMs 适配
+- CoFinder 后续将提供基于 *LLaMA* 、*ChatGLM* 的对接能力，以满足开发者对敏感代码保护的诉求。
 
 ### 独立应用
 
