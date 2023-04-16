@@ -1,7 +1,7 @@
 # 码小白 CoFinder => Code + Finder,  AI帮你查代码、写代码、写注释、做美化... 右键直达
 ![](https://postimg.aliavv.com/mbp162023/ore58k.jpg)
 
-## 现已发布至 VSCode 市场，欢迎[**下载体验**](http://marketplace.visualstudio.com/items?itemName=best…)
+## 现已发布至 VSCode 市场，欢迎[**下载体验**](https://marketplace.visualstudio.com/items?itemName=bestony.cofinder)
 
 ## 愿景
 
