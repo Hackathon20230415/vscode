@@ -57,7 +57,7 @@
 
 ## 技术方案
 
-
+![](https://postimg.aliavv.com/mbp162023/f7ral9.png)
 
 ## 长期规划
 
