@@ -42,9 +42,9 @@
 
 - 除了内置的 Prompt ，大家肯定还有自己想要使用在编程场景下的 Prompt ，我们提供了 VSCode Native 的自定义 Prompt 的功能。
 
-| 使用自定义 Prompt                                    | 编辑自定义 Prompt                                    |
-| ---------------------------------------------------- | ---------------------------------------------------- |
-| ![](https://postimg.aliavv.com/mbp162023/lw7t27.gif) | ![](https://postimg.aliavv.com/mbp162023/duypmu.gif) |
+| 使用自定义 Prompt                                    |
+| ---------------------------------------------------- |
+| ![](https://postimg.aliavv.com/mbp162023/lw7t27.gif) |
 
 #### GPT4 compatible
 
