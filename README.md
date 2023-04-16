@@ -54,6 +54,10 @@
 
 ![](https://postimg.aliavv.com/mbp162023/i5eelv.png)
 
+## 技术方案
+
+
+
 ## 长期规划
 
 ### 多编辑器系统支持
