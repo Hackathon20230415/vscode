@@ -63,7 +63,7 @@ function activate(context) {
 
 	let rewriteFile = vscode.commands.registerCommand("cofinder.rewriteFile", function () {
 		const action = "rewrite";
-		const template = "/*\r\n %s \r\n*/\r\n%s";
+		const template = "<<<<<<<\r\n %2$s \r\n=======\r\n %1$s \r\n>>>>>>>";
 		const editor = vscode.window.activeTextEditor;
 		if (!editor) {
 			vscode.window.showInformationMessage("识别失败，请联系开发者排查");
@@ -75,7 +75,7 @@ function activate(context) {
 
 	let rewriteSelection = vscode.commands.registerCommand('cofinder.rewriteSeletion', function () {
 		const action = "rewrite";
-		const template = "/*\r\n %s \r\n*/\r\n%s";
+		const template = "<<<<<<<\r\n %2$s \r\n=======\r\n %1$s \r\n>>>>>>>";
 		const editor = vscode.window.activeTextEditor;
 		if (!editor) {
 			vscode.window.showInformationMessage("识别失败，请联系开发者排查");
@@ -157,7 +157,7 @@ function activate(context) {
 
 	let refactorFile = vscode.commands.registerCommand('cofinder.refactorFile', function () {
 		const action = 'refactor';
-		const template = '/*\r\n %s \r\n*/\r\n%s';
+		const template = "<<<<<<<\r\n %2$s \r\n=======\r\n %1$s \r\n>>>>>>>";
 		const editor = vscode.window.activeTextEditor;
 		if (!editor) {
 			vscode.window.showInformationMessage('识别失败，请联系开发者排查');
@@ -169,7 +169,7 @@ function activate(context) {
 
 	let refactorSelection = vscode.commands.registerCommand('cofinder.refactorSeletion', function () {
 		const action = 'refactor';
-		const template = '/*\r\n %s \r\n*/\r\n%s';
+		const template = "<<<<<<<\r\n %2$s \r\n=======\r\n %1$s \r\n>>>>>>>";
 		const editor = vscode.window.activeTextEditor;
 		if (!editor) {
 			vscode.window.showInformationMessage('识别失败，请联系开发者排查');
@@ -181,7 +181,7 @@ function activate(context) {
 
 	let upgradeFile = vscode.commands.registerCommand('cofinder.upgradeFile', function () {
 		const action = 'upgrade';
-		const template = '/*\r\n %s \r\n*/\r\n%s';
+		const template = "<<<<<<<\r\n %2$s \r\n=======\r\n %1$s \r\n>>>>>>>";
 		const editor = vscode.window.activeTextEditor;
 		if (!editor) {
 			vscode.window.showInformationMessage('识别失败，请联系开发者排查');
@@ -193,7 +193,7 @@ function activate(context) {
 
 	let upgradeSelection = vscode.commands.registerCommand('cofinder.upgradeSeletion', function () {
 		const action = 'upgrade';
-		const template = '/*\r\n %s \r\n*/\r\n%s';
+		const template = "<<<<<<<\r\n %2$s \r\n=======\r\n %1$s \r\n>>>>>>>";
 		const editor = vscode.window.activeTextEditor;
 		if (!editor) {
 			vscode.window.showInformationMessage('识别失败，请联系开发者排查');
@@ -229,7 +229,7 @@ function activate(context) {
 
 	let modularFile = vscode.commands.registerCommand('cofinder.modularFile', function () {
 		const action = 'modular';
-		const template = '/*\r\n %s \r\n*/\r\n%s';
+		const template = "<<<<<<<\r\n %2$s \r\n=======\r\n %1$s \r\n>>>>>>>";
 		const editor = vscode.window.activeTextEditor;
 		if (!editor) {
 			vscode.window.showInformationMessage('识别失败，请联系开发者排查');
@@ -241,7 +241,7 @@ function activate(context) {
 
 	let modularSelection = vscode.commands.registerCommand('cofinder.modularSeletion', function () {
 		const action = 'modular';
-		const template = '/*\r\n %s \r\n*/\r\n%s';
+		const template = "<<<<<<<\r\n %2$s \r\n=======\r\n %1$s \r\n>>>>>>>";
 		const editor = vscode.window.activeTextEditor;
 		if (!editor) {
 			vscode.window.showInformationMessage('识别失败，请联系开发者排查');
@@ -253,7 +253,7 @@ function activate(context) {
 
 	let simplifyFile = vscode.commands.registerCommand('cofinder.simplifyFile', function () {
 		const action = 'simplify';
-		const template = '/*\r\n %s \r\n*/\r\n%s';
+		const template = "<<<<<<<\r\n %2$s \r\n=======\r\n %1$s \r\n>>>>>>>";
 		const editor = vscode.window.activeTextEditor;
 		if (!editor) {
 			vscode.window.showInformationMessage('识别失败，请联系开发者排查');
@@ -265,7 +265,7 @@ function activate(context) {
 
 	let simplifySelection = vscode.commands.registerCommand('cofinder.simplifySeletion', function () {
 		const action = 'simplify';
-		const template = '/*\r\n %s \r\n*/\r\n%s';
+		const template = "<<<<<<<\r\n %2$s \r\n=======\r\n %1$s \r\n>>>>>>>";
 		const editor = vscode.window.activeTextEditor;
 		if (!editor) {
 			vscode.window.showInformationMessage('识别失败，请联系开发者排查');
