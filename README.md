@@ -99,8 +99,8 @@
 ![](https://postimg.aliavv.com/mbp162023/6futnb.png)
 
 ## 作者
-- [白宦成](https://github.com/bestony)
-- [陈大好Davis](https://github.com/bjdehang)
+- [白宦成](https://github.com/bestony)： Software Development Engineer
+- [陈大好Davis](https://github.com/bjdehang)： Product Designer
 
 ## LICENSE
 
