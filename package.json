@@ -106,6 +106,14 @@
       {
         "command": "cofinder.simplifySeletion",
         "title": "AI Simplify: 简化选中代码"
+      },
+      {
+        "command": "cofinder.useCustomPrompt",
+        "title": "自定义提示词：使用自定义提示词"
+      },
+      {
+        "command": "cofinder.addCustomPromot",
+        "title": "自定义提示词：管理自定义提示词"
       }
     ],
     "configuration": [
@@ -224,6 +232,16 @@
         }
       ],
       "cofinder": [
+        {
+          "when": "editorFocus",
+          "command": "cofinder.useCustomPrompt",
+          "group": "5_footer@1"
+        },
+        {
+          "when": "editorFocus",
+          "command": "cofinder.addCustomPromot",
+          "group": "5_footer@2"
+        },
         {
           "when": "editorHasSelection",
           "command": "cofinder.rewriteSeletion",

@@ -274,6 +274,93 @@ function activate(context) {
 		Invoke(action, template, editor.document.getText(editor.selection), editor.selection);
 	});
 	context.subscriptions.push(simplifySelection);
+	let addCustomPrompt = vscode.commands.registerCommand('cofinder.addCustomPromot',function(){
+		vscode.window.showQuickPick([
+			{
+				label:"新增自定义提示词",
+				detail:"新增自定义提示词，可用于实现新增一个用户自定义的提示词。",
+				description:"add"
+			},
+			{
+				kind: vscode.QuickPickItemKind.Separator
+			},
+			{
+				label:"Act as Linux Terminal",
+				detail:"I want you to act as a linux terminal. I will type commands and you will reply with what the terminal should show. I want you to only reply with the terminal output inside one unique code block, and nothing else. do not write explanations. do not type commands unless I instruct you to do so. When I need to tell you something in English, I will do so by putting text inside curly brackets {like this}. My first command is pwd",
+				description:"#1"
+			},
+			{
+				label:"Act as Javascript Console",
+				detail:'I want you to act as a javascript console. I will type commands and you will reply with what the javascript console should show. I want you to only reply with the terminal output inside one unique code block, and nothing else. do not write explanations. do not type commands unless I instruct you to do so. when I need to tell you something in english, I will do so by putting text inside curly brackets {like this}. My first command is console.log("Hello World");',
+				description:"#2"
+			},
+			{
+				label:"Act as a UX/UI Developer",
+				detail:'I want you to act as a UX/UI developer. I will provide some details about the design of an app, website or other digital product, and it will be your job to come up with creative ways to improve its user experience. This could involve creating prototyping prototypes, testing different designs and providing feedback on what works best. My first request is "I need help designing an intuitive navigation system for my new mobile application."',
+				description:"#3"
+			}
+		],{
+			matchOnDescription: true,
+			placeHolder:"新增，或编辑已有的 Prompt"
+		}).then(pick => {
+			if(pick.description == "add"){
+				vscode.window.showInputBox({
+					title:"输入你的 Prompt 名称",
+					prompt:"Prompt 名称将会出现在使用 Prompt 时的提示中，用于快速识别 Prompt"
+				}).then(title => {
+					vscode.window.showInputBox({
+						title:`请输入 ${title} 的 prompt`,
+						prompt:"Promot 将会用于发送给 OpenAI 进行补全。可将 {code} 作为代码的占位符来使用。"
+					}).then(prompt => {
+						vscode.window.showInformationMessage(`自定义管理 Prompt 还未完成，但我已经知道你的名称是 ${title},提示词 ${prompt}`);
+					})
+				})
+			}
+		})
+	})
+	context.subscriptions.push(addCustomPrompt)
+	let useCustomPrompt = vscode.commands.registerCommand('cofinder.useCustomPrompt',function(){
+		const editor = vscode.window.activeTextEditor;
+		const document = editor.document;
+		const template = "<<<<<<<\r\n %2$s \r\n=======\r\n %1$s \r\n>>>>>>>";
+		if (!editor) {
+			vscode.window.showInformationMessage('识别失败，请联系开发者排查');
+			return;
+		}
+		vscode.window.showQuickPick([
+			{
+				label:"Act as Linux Terminal",
+				detail:"I want you to act as a linux terminal. I will type commands and you will reply with what the terminal should show. I want you to only reply with the terminal output inside one unique code block, and nothing else. do not write explanations. do not type commands unless I instruct you to do so. When I need to tell you something in English, I will do so by putting text inside curly brackets {like this}. My first command is pwd",
+				description:"#1"
+			},
+			{
+				label:"Act as Javascript Console",
+				detail:'I want you to act as a javascript console. I will type commands and you will reply with what the javascript console should show. I want you to only reply with the terminal output inside one unique code block, and nothing else. do not write explanations. do not type commands unless I instruct you to do so. when I need to tell you something in english, I will do so by putting text inside curly brackets {like this}. My first command is console.log("Hello World");',
+				description:"#2"
+			},
+			{
+				label:"Act as a UX/UI Developer",
+				detail:'I want you to act as a UX/UI developer. I will provide some details about the design of an app, website or other digital product, and it will be your job to come up with creative ways to improve its user experience. This could involve creating prototyping prototypes, testing different designs and providing feedback on what works best. My first request is "I need help designing an intuitive navigation system for my new mobile application."',
+				description:"#3"
+			}
+		],{
+			matchOnDescription: true,
+			placeHolder:"选择 Prompt，并应用在你选中的代码或整个文件上"
+		}).then(pick => {
+		
+			console.log(pick);
+			if(editor.selection.isEmpty){
+				vscode.window.showInformationMessage('自定义 Prompt 功能尚未完成，但我看出来，你想让我对你的整个文件做的事：' + pick.label);
+
+				// Invoke('custom', template, editor.document.getText(), editor.selection);
+			}else{
+				vscode.window.showInformationMessage('自定义 Prompt 功能尚未完成，但我看出来，你想让我对你选中的部分做的事：' + pick.label);
+
+				// Invoke('custom', template, editor.document.getText(editor.selection), editor.selection);
+			}
+		})
+	})
+	context.subscriptions.push(useCustomPrompt);
 }
 
 function deactivate() { }
