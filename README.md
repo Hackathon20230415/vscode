@@ -57,15 +57,44 @@
 
 ## 技术方案
 
+**SaaS 方案**
+
+	1. 在 VSCode 根据用户行为判别用户意图。
+	1. 发送至 CoFinder 服务端，使用 FineTune 后的模型进行推理。
+	1. 结果返回到本地，并根据行为类型，选择使用 Diff 模式还是插入模式。
+
+**本地方案**：
+
+ 	1. 在 VSCode 根据用户行为判别用户意图。
+ 	2. 在本地使用用户自定义的 Prompt 来完成 Prompt 的组装
+ 	3. 发送至 OpenAI 进行推理，并在拿到结果后根据行为类型，选择使用 Diff 模式还是插入模式。
+
+**Self-Hosed 方案**
+
+- 目前服务端使用的是基于 Next.js 的 Serverless Function 的方案，并提供了基于 Docker 的实现方式。
+
+**自定义 Prompt 方案**
+
+- 使用 [hexojs/warehouse](https://github.com/hexojs/warehouse) 作为数据库，满足 Prompt 存储时的结构化数据存储。
+- 使用 [https://code.visualstudio.com/api/references/vscode-api#Memento](https://code.visualstudio.com/api/references/vscode-api#Memento) 作为数据存储源，来持久化存储用户存储的 Prompt 。
+- 使用 `setKeysForSync` 来完成跨机器的用户 Prompt 的存储。
+
 ![](https://postimg.aliavv.com/mbp162023/f7ral9.png)
 
-## 长期规划
+## 长期规划（期货）
 
 ### 多编辑器系统支持
 
 - CoFinder 后续将支持 Jetbrains 系列 IDE、XCode、Sublime Text 等常见编辑器系统，给开发者带来全平台统一的体验。
 
 ![](https://postimg.aliavv.com/mbp162023/lcsi66.png)
+
+### 独立应用
+
+- CoFinder 后续将提供独立应用，用于更好的展示推理过程，帮助开发者理解 AI 视角下的模型能力，从机器的视角来看待我们的代码。
+- 同时，独立应用可以更方便地进行多次互动、提前预览、编辑修改等操作，以及在本地运行 *LLaMA* 、*ChatGLM* 等模型，来满足企业和个人对于敏感代码保护的需求。
+
+![](https://postimg.aliavv.com/mbp162023/6futnb.png)
 
 ## 作者
 - [白宦成](https://github.com/bestony)
