@@ -1,11 +1,12 @@
 # 码小白 CoFinder => Code + Finder,  AI帮你查代码、写代码、写注释、做美化... 右键直达
 ![](https://postimg.aliavv.com/mbp162023/ore58k.jpg)
 
-[**下载体验**]()
+## 现已发布至 VSCode 市场，欢迎[**下载体验**](http://marketplace.visualstudio.com/items?itemName=best…)
 
 ## 愿景
 
 - AIGC 来临之后，所有人都觉得 Somebody 将会失去自己的工作。但我们不同，我们相信 AIGC 终将改变世界，**但不是干掉每个人的工作，而是让每个人成为更好的自己。我们希望帮助每一个 Developer 都成为 10x Developer，甚至是 100x Developer。**
+- For Developers, by Developers
 
 ## 取名灵感
 
@@ -70,6 +71,6 @@
 - [白宦成](https://github.com/bestony)
 - [陈大好Davis](https://github.com/bjdehang)
 
-### LICENSE
+## LICENSE
 
 [Apache Licesne V2](LICENSE)
